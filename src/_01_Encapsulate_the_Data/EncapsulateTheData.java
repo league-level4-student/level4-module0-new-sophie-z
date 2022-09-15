@@ -29,7 +29,7 @@ public class EncapsulateTheData {
      * to a new Object(); Hint: Use the instanceof operator.
      */
 
-    Object memberObj;
+    protected Object memberObj;
 
 	public void setItemsReceived(int randomPositiveNum) {
 		// TODO Auto-generated method stub
@@ -66,11 +66,11 @@ public class EncapsulateTheData {
 
 	public void setNomenclature(String randomString) {
 		// TODO Auto-generated method stub
-		if(randomString.isEmpty()==false) {
-			this.nomenclature = randomString;
+		if(randomString.isBlank()) {
+			nomenclature = " ";
 		}
 		else {
-			nomenclature.equals(" ");
+			this.nomenclature = randomString;
 		}
 	}
 
@@ -81,12 +81,17 @@ public class EncapsulateTheData {
 
 	public void setMemberObj(Object randomObject) {
 		// TODO Auto-generated method stub
-		
+		if(randomObject instanceof String){
+			memberObj = new Object();
+		}
+		else {
+			this.memberObj = randomObject;
+		}
 	}
 
 	public Object getMemberObj() {
 		// TODO Auto-generated method stub
-		return null;
+		return memberObj;
 	}
 
 }
